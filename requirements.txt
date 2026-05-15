@@ -1,0 +1,22 @@
+# IMPORTANT: install torch FIRST from the matching CUDA wheel index, then this file.
+# Otherwise pip will silently replace your CUDA torch with the CPU build from PyPI.
+#
+#   py -3.12 -m venv .venv
+#   .venv\Scripts\activate
+#   pip install --upgrade pip wheel setuptools
+#   pip install torch==2.8.0 torchvision==0.23.0 torchaudio==2.8.0 --index-url https://download.pytorch.org/whl/cu126
+#   pip install -r requirements.txt
+#
+# Why torch 2.8 + cu126 specifically:
+#   - whisperx 3.8 / pyannote-audio 4.0 require torch~=2.8.0
+#   - torch 2.8 is NOT on the cu121 index; cu126 is the safest match for NVIDIA driver 525+
+#   - For driver 570+ you can swap cu126 -> cu128
+#   - Versions of torchvision/torchaudio MUST match the torch minor version
+#
+# Verify after install:
+#   python -c "import torch; print(torch.cuda.is_available(), torch.version.cuda)"
+# If False, the CUDA wheel got clobbered — rerun the cu126 install with --force-reinstall.
+
+yt-dlp>=2024.10.0
+whisperx>=3.8.0
+huggingface-hub>=0.25.0

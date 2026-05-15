@@ -1,0 +1,22 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# generated outputs
+transcripts/
+
+# downloaded models (~3 GB each)
+models/
+
+# test inputs
+test_clips/
+
+# stray media
+*.wav
+*.mp3
+*.m4a
+*.mp4
+*.mkv
+*.webm
+*.flac
